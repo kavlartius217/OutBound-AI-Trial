@@ -2,6 +2,10 @@
 __import__('pysqlite3')
 import sys
 sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
+# These are imported after the initial credential setup.
+# streamlit_app.py
+
 import streamlit as st
 import os
 import requests
@@ -10,6 +14,8 @@ import datetime
 import uuid
 import boto3
 from botocore.exceptions import NoCredentialsError, PartialCredentialsError
+
+# --- START: Credentials & Configuration from Streamlit Secrets ---
 
 # Neo4j Credentials
 os.environ['NEO4J_URI'] = st.secrets["neo4j"]["uri"]
@@ -387,10 +393,6 @@ st.set_page_config(layout="wide", page_title="OutboundAI - Apollo Bot MARK III")
 
 st.title("🚀 OutboundAI: Your AI-Powered Sales Intelligence Engine")
 st.markdown("Convert natural language to an Apollo URL, fetch leads, and generate an actionable sales intelligence report.")
-
-st.sidebar.title("Configuration")
-st.sidebar.info("This app uses credentials stored in Streamlit's secrets manager. Ensure all API keys and AWS credentials are correctly configured in your app settings.")
-
 
 col1, col2 = st.columns(2)
 
