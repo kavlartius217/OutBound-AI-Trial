@@ -6,3 +6,5 @@ crewai-tools
 crewai[tools]
 exa-py
 boto3
+python-dateutil
+pysqlite3-binary
