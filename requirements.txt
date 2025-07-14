@@ -1,0 +1,8 @@
+streamlit
+crewai
+langchain-neo4j
+langchain-openai
+crewai-tools
+crewai[tools]
+exa-py
+boto3
